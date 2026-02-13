@@ -539,12 +539,12 @@
                     var dir = pos.clone().length(heartSettings.particles.velocity);
                     var color = colors[Math.floor(Math.random() * colors.length)];
                     
-                    // 增大手机端的显示比例系数，从 width/450 增加到 width/300 左右
-                    // 确保爱心足够大，能完整包裹住中间的文字
-                    const responsiveScale = width < 768 ? (width / 250) : (width / 600);
+                    // 再次大幅增大手机端的显示比例系数，从 width/300 提升到 width/200
+                    // 确保爱心非常大，能完全包裹住中间的文字
+                    const responsiveScale = width < 768 ? (width / 200) : (width / 500);
                     
-                    // 微调爱心垂直位置，向上移动一点 (canvas.height / 2 - 20) 以更好地对齐文字中心
-                    particles.add(canvas.width / 2 + pos.x * heartScale * responsiveScale, (canvas.height / 2 - 30) - pos.y * heartScale * responsiveScale, dir.x, -dir.y, color);
+                    // 微调爱心垂直位置，向上移动 (canvas.height / 2 - 80) 以完美对齐上移后的文字
+                    particles.add(canvas.width / 2 + pos.x * heartScale * responsiveScale, (canvas.height / 2 - 80) - pos.y * heartScale * responsiveScale, dir.x, -dir.y, color);
                 }
                 particles.update(deltaTime);
                 particles.draw(context, images);
